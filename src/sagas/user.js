@@ -1,4 +1,4 @@
-import { USER_LOGIN,FETCH_SUCCEDED, FETCH_FAILED, CHECK_AUTH, FETCH_USER, FETCH_SUCCEDED_USER, SELECTED_USER, FETCH_SELECTED_USER, SUCCESS_AUTH, FAIELD_AUTH } from '../actions/types'
+import { USER_LOGIN, FETCH_FAILED, CHECK_AUTH, FETCH_USER, FETCH_SUCCEDED_USER, SELECTED_USER, FETCH_SELECTED_USER, SUCCESS_AUTH, FAIELD_AUTH } from '../actions/types'
 import {saveToken} from '../actions'
 import {userLogin, _checkAuths, getUser, getOneUsers} from './api'
 import { put, call, takeLatest } from 'redux-saga/effects'
@@ -62,7 +62,7 @@ function* _checkAuth() {
 
 export function* userSaga() {
     yield takeLatest(USER_LOGIN, login)
-    yield takeLatest('CHECK_AUTS', _checkAuth)
+    yield takeLatest(CHECK_AUTH, _checkAuth)
     yield takeLatest(FETCH_USER, allUser)
     yield takeLatest(FETCH_SELECTED_USER, getOneUser)
 }

@@ -77,7 +77,7 @@ export const failedAuth = (error) => {
 
 export const checkAuth = () => { 
     return {
-        type: 'CHECK_AUTS'        
+        type: CHECK_AUTH        
     }
 }
 
