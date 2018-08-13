@@ -15,28 +15,19 @@ class Login extends Component {
     componentWillMount = () => {
       this.props.isAuth()      
     };
-    // componentDidMount() {
-    //     if(this.props.user.action) {
-    //         console.log('action')
-    //         this.props.user.action.authenticated ? this.props.history.push('/') : null
-    //     } else if(this.props.user.error) {
-    //         console.log('error')
-    //         this.setState({err: true})
-    //         Object.assign(this.state.message,this.props.user.error.data)
-    //     } else {
-    //         console.log('test')
-    //     }
-
-    // }
     componentWillReceiveProps(nextProps) {
-        console.log(nextProps)
-        if (!!nextProps.user.error && nextProps.user.error.data.message === "username doensn't exist") {
-            this.setState({err: true})
-            Object.assign(this.state.message,nextProps.user.error.payloa)
+        
+        if(nextProps.error !== undefined) {
+            if(nextProps.error.data.message === "username doensn't exist") {
+                this.setState({err: true})
+                Object.assign(this.state.message,nextProps.error.data)
+            }
         }
-        Object.assign(this.state.auth, nextProps.user.action)
-        if(this.state.auth.authenticated === 'true') {
-            this.props.history.push('/')
+        Object.assign(this.state.auth, nextProps.user)
+
+        if(this.state.auth.message === 'success') {
+            // <Redirect to="/dashboard" />
+            this.props.history.push('/dashboard')
         }
     }    
 
@@ -81,7 +72,8 @@ class Login extends Component {
 
 const mapStateProps = (state) => {
     return {
-        user: state.userReducers
+        user: state.userReducers.user,
+        error: state.userReducers.error
     }
 }
 

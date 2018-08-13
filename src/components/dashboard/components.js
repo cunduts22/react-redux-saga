@@ -85,34 +85,36 @@ class EditUser extends React.Component {
             })
         }
     }
+
     render() {
+        console.log(this.props)
         return (            
             <div className="container">
                 <div className="card">
                     <div className="card-header"><Link to="/dashboard">Dashboard</Link></div>
                     <div className="card-body">                    
-                        {this.props.selectUser.receiveData !== undefined ?
+                        {this.props.user !== undefined ?
                             <form className="form" onSubmit={this.handleUser.bind(this)}>            
                                 <div className="form-group">
                                     <label htmlFor="username">Name</label>
-                                    <input type="text" defaultValue={this.props.selectUser.receiveData.name} ref="name" className="form-control"/>
+                                    <input type="text" defaultValue={this.props.user.name} ref="name" className="form-control"/>
                                 </div>
                                 <div className="form-group">
                                     <label htmlFor="email">Email</label>
-                                    <input type="email" defaultValue={this.props.selectUser.receiveData.email} ref="email" className="form-control"/>
+                                    <input type="email" defaultValue={this.props.user.email} ref="email" className="form-control"/>
                                 </div>
                                 <div className="form-group">
                                     <div className="row">
                                         <legend className="col-form-label col-sm-2 pt-0">Gender</legend>
                                         <div className="col-sm-10">
                                             <div className="form-check">
-                                                <input className="form-check-input" ref="male" type="radio" name="gender" id="gridRadios1" defaultValue="male" onChange={this.selectRadio.bind(this)} checked={this.state.selected === 'male' || this.props.selectUser.receiveData.gender === 'male'}/>
+                                                <input className="form-check-input" ref="male" type="radio" name="gender" id="gridRadios1" defaultValue="male" onChange={this.selectRadio.bind(this)} checked={this.state.selected === 'male' || this.props.user.gender === 'male'}/>
                                                 <label className="form-check-label" htmlFor="gridRadios1">
                                                     Male
                                                 </label>
                                             </div>
                                             <div className="form-check">
-                                                <input className="form-check-input" ref="female" type="radio" name="gender" id="gridRadios2" defaultValue="female" onChange={this.selectRadio.bind(this)} checked={this.state.selected === 'female' || this.props.selectUser.receiveData.gender === 'female'}/>
+                                                <input className="form-check-input" ref="female" type="radio" name="gender" id="gridRadios2" defaultValue="female" onChange={this.selectRadio.bind(this)} checked={this.state.selected === 'female' || this.props.user.gender === 'female'}/>
                                                 <label className="form-check-label" htmlFor="gridRadios2">
                                                     Female
                                                 </label>
@@ -122,7 +124,7 @@ class EditUser extends React.Component {
                                 </div>                    
                                 <div className="form-group">
                                     <label htmlFor="phone">Phone Number</label>
-                                    <input type="text" ref="phone" defaultValue={this.props.selectUser.receiveData.phone_number} className="form-control" style={{borderColor: this.state.isValid ? null : 'red'}} onChange={this.checkValid.bind(this)}/>
+                                    <input type="text" ref="phone" defaultValue={this.props.user.phone_number} className="form-control" style={{borderColor: this.state.isValid ? null : 'red'}} onChange={this.checkValid.bind(this)}/>
                                 </div>
                                 <div className="form-group">
                                     <input type="submit" defaultValue="Save" className="btn btn-primary"/>

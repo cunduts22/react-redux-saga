@@ -1,4 +1,4 @@
-import { USER_LOGIN,FETCH_SUCCEDED, FETCH_FAILED, CHECK_AUTH, FETCH_USER, FETCH_SUCCEDED_USER, SELECTED_USER, FETCH_SELECTED_USER } from '../actions/types'
+import { USER_LOGIN,FETCH_SUCCEDED, FETCH_FAILED, CHECK_AUTH, FETCH_USER, FETCH_SUCCEDED_USER, SELECTED_USER, FETCH_SELECTED_USER, SUCCESS_AUTH, FAIELD_AUTH } from '../actions/types'
 import {saveToken} from '../actions'
 import {userLogin, _checkAuths, getUser, getOneUsers} from './api'
 import { put, call, takeLatest } from 'redux-saga/effects'
@@ -9,10 +9,10 @@ function* login(action) {
         const {response, error} = yield call(userLogin,username,password)
         if(response) {
             yield call(saveToken, response.data.token)
-            yield put({type: FETCH_SUCCEDED, receiveData: response.data})
+            yield put({type: SUCCESS_AUTH, receiveData: response.data})
             window.location.replace('/')
         } else {
-            yield put ({type: FETCH_FAILED, error})
+            yield put ({type: FAIELD_AUTH, error})
         }
 
     } catch (error) {
@@ -51,9 +51,9 @@ function* _checkAuth() {
     try {
         const {response, error} = yield call(_checkAuths)
         if(response) {
-            yield put({type: CHECK_AUTH, authenticated: 'true', payload: response.data})
+            yield put({type: SUCCESS_AUTH, receiveData: response.data})
         } else {
-            yield put({type: FETCH_FAILED, error})
+            yield put({type: FAIELD_AUTH, error})
         }
     } catch (error) {
         console.log(error)

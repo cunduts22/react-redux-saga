@@ -9,5 +9,6 @@ export const SELECTED_USER = "SELECTED_USER"
 export const FETCH_FAILED = "FETCH_FAILED"
 export const SAVE_TOKEN = "SAVE_TOKEN"
 export const CHECK_AUTH = "CHECK_AUTH"
-
+export const SUCCESS_AUTH = "SUCCESS_AUTH"
+export const FAIELD_AUTH = "FAIELD_AUTH"
 

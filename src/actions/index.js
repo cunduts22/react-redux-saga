@@ -1,4 +1,4 @@
-import {USER_LOGIN,FETCH_API, FETCH_FAILED, FETCH_SUCCEDED, CHECK_AUTH, FETCH_USER, FETCH_SUCCEDED_USER, SELECTED_USER, FETCH_SELECTED_USER, FETCH_ALL_BOOKS} from './types'
+import {USER_LOGIN,FETCH_API, FETCH_FAILED, FETCH_SUCCEDED, FETCH_USER, FETCH_SUCCEDED_USER, SELECTED_USER, FETCH_SELECTED_USER, FETCH_ALL_BOOKS, SUCCESS_AUTH, FAIELD_AUTH} from './types'
 
 export const loginAction = (data) => {
     return {
@@ -61,11 +61,17 @@ export const fetchSuccess = (receiveData) => {
     }
 }
 
-export const auth = (authenticated, payload) => {
+export const auth = (receiveData) => {
     return {
-        type: CHECK_AUTH,
-        authenticated,
-        payload
+        type: SUCCESS_AUTH,
+        receiveData
+    }
+}
+
+export const failedAuth = (error) => {
+    return {
+        type: FAIELD_AUTH,
+        error
     }
 }
 

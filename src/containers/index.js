@@ -4,10 +4,12 @@ import { loginAction, checkAuth, logoutUser} from '../actions'
 
 const mapStateProps = (state) => {
     return {
-        user: state.userReducers,
+        user: state.userReducers.user,
+        users: state.userReducers.users,
+        error: state.userReducers.error,
         book: state.bookReducers,
-        allUser: state.allUser,
-        selectUser: state.selectUser
+        // allUser: state.allUser,
+        // selectUser: state.selectUser
     }
 }
 

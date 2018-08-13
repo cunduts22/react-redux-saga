@@ -7,8 +7,9 @@ import EditUser from '../components/dashboard/components';
 import Searching from '../components/search';
 export default class RouterConfig extends Component {   
     componentWillMount() {
-        this.props.checkAuth()
-    }
+        this.props.checkAuth()        
+    }   
+
     logoutUser() {
         this.props.onLogout()
     }
@@ -20,7 +21,7 @@ export default class RouterConfig extends Component {
                     <Route exact path="/dashboard" component={Dashboard}/>
 
                     <Route exact path="/edit-user" render={() => {
-                        return <EditUser selectUser={this.props.selectUser}/>
+                        return <EditUser user={this.props.user}/>
                     }}/>
                     <Route path='/search' component={Searching}/>
                     
@@ -34,9 +35,9 @@ export default class RouterConfig extends Component {
                     }
                     <Route exact render={() => {
                         {
-                            return this.props.user.error === undefined?
-                            <Redirect to="/dashboard" />
-                            : <Redirect to="/login" />
+                            return this.props.error === null ?
+                             <Redirect to="/dashboard" /> :<Redirect to="/login" />
+                            
                         }
                     }}/>
                     

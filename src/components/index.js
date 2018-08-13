@@ -7,6 +7,7 @@ class Dashboard extends Component {
     componentWillMount = () => {
       this.props.onFetchUserApi()
     };        
+    
     render() {
     return (
         <div>                
@@ -17,8 +18,8 @@ class Dashboard extends Component {
                     </div>
                     <div className="card-body">
                         {
-                            this.props.allUser.receiveData ?
-                            this.props.allUser.receiveData.map(snap => {
+                            this.props.users ?
+                            this.props.users.map(snap => {
                                 return <DisplayUser 
                                             key={snap._id}
                                             id={snap._id}
@@ -28,9 +29,9 @@ class Dashboard extends Component {
                                             gender={snap.gender} 
                                             onFetchOneUser={this.props.onFetchOneUser}
                                             history={this.props.history}
-                                        />
-                            }) : <DisplayUser/>
-                        }
+                                        /> 
+                            }) : <DisplayUser/> 
+                        }                        
                     </div>
                 </div>
             </div>

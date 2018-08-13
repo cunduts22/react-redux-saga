@@ -16,46 +16,38 @@ export default function checkAuthor(Component) {
         componentWillMount() {
             this.props.isAuth()
         }         
-        
-        componentWillReceiveProps(nextProps) {
-            Object.assign(this.state.obj,nextProps.user.action)
-        }
-        
+                
         
         render() {
-            if (!!this.state.obj.authenticated) {
-                if (this.state.obj.authenticated === 'true') {
-                    return (
-                        <Component 
-                            onFetchBookApi={this.props.onFetchBookApi} 
-                            onFetchUserApi={this.props.onFetchUserApi}
-                            onFetchOneUser={this.props.onFetchOneUser}
-                            onFetchAllBook={this.props.onFetchAllBook}
-                            history={this.props.history} 
-                            user={this.props.user} 
-                            book={this.props.book}
-                            allUser={this.props.allUser}
-                            selectUser={this.props.selectUser}
-                            />
-                    )
-                }
-                else {
-                    return this.props.history.push('/login')
+            if(this.props.user !== null) {
+                if(this.props.user.message === 'success') {
+                   return <Component 
+                          onFetchBookApi={this.props.onFetchBookApi} 
+                          onFetchUserApi={this.props.onFetchUserApi}
+                          onFetchOneUser={this.props.onFetchOneUser}
+                          onFetchAllBook={this.props.onFetchAllBook}
+                          history={this.props.history} 
+                          user={this.props.user}
+                          users={this.props.users} 
+                          book={this.props.book}                            
+                          error={this.props.error}
+                          />
+                } else {
+                    return null
                 }
             } else {
                 return null
             }
-            
         }
     })));
 }
 
 const mapStateProps = (state) => {
     return {
-        user: state.userReducers,
-        book: state.bookReducers,
-        allUser: state.allUser,
-        selectUser: state.selectUser
+        user: state.userReducers.user,
+        users: state.userReducers.users,
+        error: state.userReducers.error,
+        book: state.bookReducers        
     }
 }
 
