@@ -14,7 +14,7 @@ class Dashboard extends Component {
             <div className="container">
                 <div className="card">
                     <div className="card-header">
-                        <Link to="/search">Search API</Link>
+                        <Link to="/search" className="btn btn-info">Search API</Link>
                     </div>
                     <div className="card-body">
                         {

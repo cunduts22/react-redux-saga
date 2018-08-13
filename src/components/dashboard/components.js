@@ -91,7 +91,7 @@ class EditUser extends React.Component {
         return (            
             <div className="container">
                 <div className="card">
-                    <div className="card-header"><Link to="/dashboard">Dashboard</Link></div>
+                    <div className="card-header"><Link to="/dashboard" className="btn btn-info">Dashboard</Link></div>
                     <div className="card-body">                    
                         {this.props.user !== undefined ?
                             <form className="form" onSubmit={this.handleUser.bind(this)}>            

@@ -19,7 +19,11 @@ class Searching extends React.Component {
          
         return (
             <div className="container">
-            <Link to="/dashboard" className="btn btn-info">Dashboard</Link>
+                <div className="card">
+                    <div className="card-header">
+                        <Link to="/dashboard" className="btn btn-info">Dashboard</Link>
+                    </div>
+                </div>
                 <div className="card">
                     <div className="card-header">
                 <SearchBar onFetchBookApi={this.props.onFetchBookApi}/>

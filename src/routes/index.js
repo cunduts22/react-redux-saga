@@ -27,7 +27,7 @@ export default class RouterConfig extends Component {
                     
                     <Route path="/login" component={Login}/>
                     {
-                        this.props.user.error === undefined?
+                        this.props.error === undefined?
                         <div className="row justify-content-center">
                             <button className="center btn btn-danger" onClick={this.logoutUser.bind(this)}>Logout</button>
                         </div>
