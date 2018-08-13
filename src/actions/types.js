@@ -11,4 +11,7 @@ export const SAVE_TOKEN = "SAVE_TOKEN"
 export const CHECK_AUTH = "CHECK_AUTH"
 export const SUCCESS_AUTH = "SUCCESS_AUTH"
 export const FAIELD_AUTH = "FAIELD_AUTH"
+export const FETCH_PHOTO = "FETCH_PHOTO"
+export const PHOTO_SUCCEDED = "PHOTO_SUCCEDED"
+export const PHOTO_FAILED = "PHOTO_FAILED"
 

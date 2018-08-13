@@ -38,6 +38,16 @@ export const userLogin = async (username, password) => {
     .catch(error => ({error}))
 }
 
+export const getAllFoto = async (pages) => {
+    return await axios({
+        url: url+'photo?pages='+pages,
+        method: 'GET'
+    })
+    .then(response => ({response}))
+    .catch(error => ({error}))
+
+}
+
 export const _checkAuths = async () => {
     try {        
         return await axios({

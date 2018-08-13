@@ -26,7 +26,7 @@ class Searching extends React.Component {
                 </div>
                 <div className="card">
                     <div className="card-header">
-                <SearchBar onFetchBookApi={this.props.onFetchBookApi}/>
+                    <SearchBar onFetchBookApi={this.props.onFetchBookApi}/>
                     </div>
                     <div className="card-body">
                        {

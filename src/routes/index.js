@@ -5,6 +5,7 @@ import Login from '../components/login'
 import Dashboard from '../components'
 import EditUser from '../components/dashboard/components';
 import Searching from '../components/search';
+import Photos from '../components/photo';
 export default class RouterConfig extends Component {   
     componentWillMount() {
         this.props.checkAuth()        
@@ -23,8 +24,8 @@ export default class RouterConfig extends Component {
                     <Route exact path="/edit-user" render={() => {
                         return <EditUser user={this.props.user}/>
                     }}/>
-                    <Route path='/search' component={Searching}/>
-                    
+                    <Route path='/book' component={Searching}/>
+                    <Route path="/photos" component={Photos} />
                     <Route path="/login" component={Login}/>
                     {
                         this.props.error === undefined?
@@ -36,7 +37,7 @@ export default class RouterConfig extends Component {
                     <Route exact render={() => {
                         {
                             return this.props.error === null ?
-                             <Redirect to="/dashboard" /> :<Redirect to="/login" />
+                             null : <Redirect to="/login" />
                             
                         }
                     }}/>
