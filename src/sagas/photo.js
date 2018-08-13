@@ -6,7 +6,6 @@ import {
 import { getAllFoto } from './api';
 import { PHOTO_SUCCEDED, PHOTO_FAILED, FETCH_PHOTO } from '../actions/types';
 
-
 function* getPhoto(action) {
     try {
         const {pages} = action

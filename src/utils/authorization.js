@@ -4,7 +4,7 @@ import {connect} from 'react-redux'
 import {checkAuth,fetchApi, fetchUser, fetchSelectedUser, fetchAllBooks, fetchPhoto} from '../actions'
 
 
-export default function checkAuthor(Component) {
+export default function checkAuthenticated(Component) {
     return (connect(mapStateProps, mapDispatchToProps)(withRouter(class AuthWrapped extends React.Component {
         constructor(props) {
             super(props);

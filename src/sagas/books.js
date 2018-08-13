@@ -1,3 +1,14 @@
+/**
+ * document author cunduts
+ * yield takeLatest(@param type, @param method), when we call our function where have type = @param type then @param method will render
+ * @param type is our trigger to run @param method
+ * yield call is saga effect function to wait response from our api function or Promise
+ * yield call(<getBooks,search>),this method do like getBooks(search)
+ * yield put will trigger action where action have type = @param type
+ * @param {*} action <= return type and data, from ./action => fetchApi(data) return {type,data}
+ * @param {*} getBooks <= return response or error from ./api, where this method have @param search
+ */
+
 import { FETCH_API, FETCH_FAILED, FETCH_SUCCEDED, FETCH_ALL_BOOKS } from '../actions/types'
 import {getBooks, allBooks} from './api'
 import { put, call, takeLatest } from 'redux-saga/effects'

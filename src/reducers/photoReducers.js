@@ -1,3 +1,12 @@
+/**
+ * Reducers will triggers when function that return type equal case type
+ * Reducers return props[name] / this.props[name]
+ * @param {*} [state=initalStatement]
+ * @param {*} action
+ * @returns props[name] / this.props[name]
+ * [name] = initialStatement or others
+ */
+
 import { FETCH_PHOTO, PHOTO_SUCCEDED, PHOTO_FAILED } from "../actions/types";
 
 const initalStatement = {
@@ -11,7 +20,7 @@ const photoReducers = (state = initalStatement, action) => {
             return {
                 ...state,
                 pages: action.pages
-            }
+            } // object assign
         case PHOTO_SUCCEDED:
             return {
                 ...state,

@@ -1,3 +1,6 @@
+/** 
+ * Define our type for our action
+ */
 export const USER_LOGIN = "USER_LOGIN"
 export const FETCH_USER = "USER_FETCH"
 export const FETCH_API = "FETCH_API"
